@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Top 5 UK songs</title>
+
+  <script>
+  function playsong() {
+      document.getElementById("Player").play();
+  }
+
+  function pausesong() {
+      document.getElementById("Player").pause();
+  }
+
+  function resetsong() {
+      var player = document.getElementById('Player');
+      player.pause();
+      player.currentTime = 0;
+  }
+
+  function backAudio() {
+      var player = document.getElementById('Player');
+      player.currentTime -= 10.0;
+  }
+
+  function forwardAudio() {
+      var player = document.getElementById('Player');
+      player.currentTime += 30.0;
+  }
+  </script>
+ <style>
+ .container {
+   margin: 10%;
+   text-align: center;
+ }
+ button {
+   padding: .5rem;
+   margin: .25rem;
+   border-radius: 5%;
+   cursor: pointer;
+ }
+ </style>
+</head>
+<body>
+  <div class="container">
+    <img src="./dj-icon.jpeg" height="300">
+    <audio id="Player">
+        <source src="./top5.m4a" />
+    </audio>
+    <div class="player-btns">
+      <button type="button" onclick="playsong()">Play</button>
+      <button type="button" onclick="pausesong()">Pause</button>
+      <button type="button" onclick="resetsong()">Stop/Reset</button>
+    </div>
+    <div class="player-adjust-btns">
+        <button type="button" onclick="backAudio()">Back 10 seconds</button>
+        <button type="button" onclick="forwardAudio()">Skip 30 seconds</button>
+    </div>
+
+  </div>
+</body>
+</html>
